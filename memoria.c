@@ -250,10 +250,28 @@ void inp(u1 chr) {
     vas(val);
 }
 
+void cll(u1 v) {
+    if(v<RAMD && memory[DS]<STK+STKD) {
+        memory[memory[DS]]=memory[LP]+1;
+        memory[DS]++;
+        memory[LP]=v+RAM;
+        fon(FJAD);
+    }
+}
+
+void ret() {
+    if(memory[DS]>STK) {
+        memory[DS]--;
+        memory[LP]=memory[memory[DS]];
+        fon(FJAD);
+    }
+}   
+
 void memini() {
     u1* ptr=memory;
     while(ptr!=memory+MEMSIZ) *ptr++=0;
     memory[LP]=RAM;
+    memory[DS]=STK;
 }
 
 void memprt() {

@@ -42,6 +42,11 @@ static void lectura() {
     } else if(ins==IFN) {
         nxt;
         ifn(cmp,lin);
+    } else if(ins==CLL) {
+        nxt;
+        cll(lin);
+    } else if(ins==RET) {
+        ret();
     }
     if(memory[RF] & FJAD) {
         memory[RF] &= ~FJAD;
@@ -68,6 +73,7 @@ static void run() {
     /* se encarga de ejecutar el programa y de mostrar la pantalla */
     while(!isstp) {
         lectura();
+        //memprt();//dbg
         scrout();
     }
     scrout();
@@ -88,7 +94,7 @@ void program(u1* p) {
     memini();
     if(p) {
         read(*p,p+1);
-        memprt();
+        memprt();//dbg
         run();
     }
 }
@@ -96,6 +102,6 @@ void program(u1* p) {
 /* prueba */
 
 int main() {
-    u1 pr[]={13,23,20,23,25,9,118,5,102,5,3,5,7,0};
+    u1 pr[]={11,1,1,11,8,102,11,8,0,39,7,12,0};
     program(pr);
 }

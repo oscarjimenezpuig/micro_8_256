@@ -16,6 +16,8 @@
 #define JMP 8
 #define IF 9
 #define IFN 10
+#define CLL 11
+#define RET 12
 
 /* varios (cuatro segundos bits) */
 #define FC 32
@@ -94,6 +96,8 @@
  * ifnneg = 42
  * ifncrr = 58
  * ifncrl = 74
+ * cll = 11
+ * ret = 12
 */
 
 

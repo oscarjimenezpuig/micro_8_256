@@ -9,10 +9,14 @@
 #define RJ 3 /* segunda direccion */
 #define RF 4 /* banderas */
 #define LP 5 /* linea de programa */
-#define VRAM 6 /* comienzo de la ram visual */
+#define DS 6 /* direccion del stack */
+#define VRAM 7 /* comienzo de la ram visual */
 #define VRAMD 12 /* dimension en bytes de la ram visual */
-#define RAM (VRAM+VRAMD) /* inicio de la ram donde reside el programa */
+#define STK (VRAM+VRAMD) /* inicio del stack */
+#define STKD 32 /* dimension del stack */
+#define RAM (STK+STKD) /* inicio de la ram donde reside el programa */
 #define RAMD (MEMSIZ-RAM)/* dimension de la ram */
+
 
 #define FZER 1 /* bandera que dice si el acumulador A es 0 */
 #define FNEG 2 /* bandera que dice si el acumulador A es negativo */
@@ -56,7 +60,7 @@ void not();
 /* A = not(A) */
 
 void rcr();
-/* A accareo a la derecha */
+/* A acarreo a la derecha */
 
 void lcr();
 /* A acarreo izquierda */
@@ -95,6 +99,14 @@ void fls();
 
 void inp(u1 chr);
 /* se coge un valor y se introduce en el registro, si es como caracter guarda solo un valor, si no guarda todo el numero  */
+
+/* llamada a subrtuinas */
+
+void cll(u1 d);
+/* salto a la direccion de memoria especificada (relativa inicio ram) */
+
+void ret();
+/* regresa a la direccion especificada por la pila */
 
 /* inicio de la memoria */
 
