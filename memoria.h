@@ -1,5 +1,6 @@
 /* Calculadora 16/4/26 */
 
+#include <stdio.h>
 
 #define MEMSIZ 256
 

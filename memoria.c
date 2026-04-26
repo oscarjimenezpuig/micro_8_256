@@ -191,12 +191,11 @@ void out(u1 chr) {
 }
 
 void clr() {
+    fon(FOUT);
+    fls();
     u1* ptr=memory+VRAM;
     while(ptr!=memory+VRAM+VRAMD) *ptr++=0;
-    fon(FOUT);
 }
-
-#include <stdio.h>
 
 void fls() {
     if(fget(FOUT)) {

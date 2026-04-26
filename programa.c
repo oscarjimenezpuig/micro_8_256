@@ -99,9 +99,4 @@ void program(u1* p) {
     }
 }
     
-/* prueba */
 
-int main() {
-    u1 pr[]={14,23,20,23,25,11,118,5,102,5,8,3,5,7,0};
-    program(pr);
-}
